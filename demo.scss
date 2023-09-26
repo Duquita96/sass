@@ -1,0 +1,121 @@
+@forward './base/index';
+
+
+
+//sass variable declaration
+//$variableName:value
+$primary-color: #c0f1f9;
+$footer-bgcolor: pink;
+
+// nav {
+//     background-color: #01579b;
+//     height: 5rem;
+// }
+
+// nav ul {
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// nav ul li {
+//     padding: 0.8rem;
+//     border-radius: 0.6rem;
+//     transition: all 0.3s ease-in
+// }
+
+// nav ul li:hover {
+//     background-color: #000;
+// }
+
+// footer {
+// background-color: $footer-bgcolor;
+// }
+
+
+
+//nav with sass
+
+nav {
+    background-color: #01579b;
+    height: 5rem;
+
+    ul {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        li {
+            padding: 0.8rem;
+            border-radius: 0.6rem;
+            transition: all 0.3s ease-in;
+            a {
+                color: #fff;
+            }
+            &:hover {
+                background-color: #000;
+            }
+        }
+    }
+}
+
+//nav ends here
+
+// creating a simple @mixin
+// 1srt example
+@mixin para-style {
+    font-size: 24px;
+    text-align: justify;
+}
+// // example 1
+// #about p {
+//     @include para-style;
+//     margin: 1rem;
+// }
+
+// example 2
+#about p {
+    @include para-style(24px, justify);
+    margin: 1rem;
+}
+
+
+//creating dinamic @mixin
+
+@mixin para-style ($size, $style){
+font-size: $size;
+text-align: $style;
+}
+
+.btn {
+    border:none;
+    border-radius: 0.6rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.btn-download {
+    @extend .btn;
+    background-color: orange;
+}
+
+.more {
+@extend .btn;
+background-color: aqua;
+}
+
+header {
+    background-color: &$primary-color;
+}
+
+footer {
+    background-color: $footer-bgcolor;
+}
+
+
+
+
